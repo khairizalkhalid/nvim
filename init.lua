@@ -704,7 +704,13 @@ require('lazy').setup({
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-        java = { 'google-java-format' },
+        java = { 'javaformatter' },
+      },
+      formatters = {
+        javaformatter = {
+          command = 'java',
+          args = { '-jar', '/Users/khairizalbinkhalid/.config/formatter/google-java-format-1.7-all-deps.jar', '-' },
+        },
       },
     },
   },
@@ -850,6 +856,19 @@ require('lazy').setup({
     },
   },
 
+  -- Setup the JDTLS (Java Language Server)
+  {
+    'mfussenegger/nvim-jdtls',
+    init = function()
+      vim.cmd [[
+      augroup jdtls_lsp
+      autocmd!
+      autocmd FileType java lua require'jdtls.jdtls_setup'.setup()
+      augroup end
+      ]]
+    end,
+  },
+
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -916,6 +935,12 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
+  -- Confirmation before quitting Neovim
+  {
+    'yutkat/confirm-quit.nvim',
+    event = 'CmdlineEnter',
+    opts = {},
+  },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
