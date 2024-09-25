@@ -11,7 +11,7 @@ function M.setup()
   local root_dir = jdtls_setup.find_root(root_markers)
 
   local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-  local workspace_dir = home .. '/.cache/jdtls/workspace' .. project_name
+  local workspace_dir = home .. '/.cache/jdtls/workspace/' .. project_name
 
   -- 💀
   -- local path_to_mason_packages = home .. "/.local/share/nvim/mason/packages"
