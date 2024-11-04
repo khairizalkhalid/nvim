@@ -93,7 +93,7 @@ vim.g.maplocalleader = ' '
 -- set default netrw liststyle as netrw_i
 vim.g.netrw_liststyle = 3
 -- set default netrw settings
-vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_bufsettings = 'nu rnu'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
