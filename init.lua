@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- set default netrw liststyle as netrw_i
-vim.g.netrw_liststyle = 3
+-- vim.g.netrw_liststyle = 3
 -- set default netrw settings
 vim.g.netrw_bufsettings = 'nu rnu'
 
