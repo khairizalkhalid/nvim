@@ -730,7 +730,13 @@ require('lazy').setup({
       formatters = {
         javaformatter = {
           command = 'java',
-          args = { '-jar', '/Users/khairizalbinkhalid/.config/formatter/google-java-format-1.7-all-deps.jar', '-' },
+          args = {
+            '-jar',
+            '/Users/khairizalbinkhalid/.config/formatter/google-java-format-1.19.2-all-deps.jar',
+            '--aosp', -- Apply AOSP style
+            '--skip-javadoc-formatting', -- Skip Javadoc formatting
+            '-',
+          },
         },
       },
     },

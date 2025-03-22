@@ -23,13 +23,13 @@ function M.setup()
 
   -- local path_to_config = path_to_jdtls .. "/config_linux"
   -- local lombok_path = path_to_jdtls .. "/lombok.jar"
-  local path_to_config = home .. '/Desktop/vscode-workspace/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm'
+  local path_to_config = home .. '/Desktop/workspace/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm'
   local lombok_path = home .. '/.local/share/nvim/dependencies/lombok.jar'
 
   -- 💀
   -- local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar"
   local path_to_jar = home
-    .. '/Desktop/vscode-workspace/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
+    .. '/Desktop/workspace/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
   -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
 
   -- local bundles = {
