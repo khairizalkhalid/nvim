@@ -5,7 +5,7 @@ function M.setup()
   local jdtls_dap = require 'jdtls.dap'
   local jdtls_setup = require 'jdtls.setup'
   local home = os.getenv 'HOME'
-  local java_home = os.getenv 'JAVA_HOME'
+  local java_home = os.getenv 'JAVA_HOME_21'
 
   local root_markers = { '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }
   local root_dir = jdtls_setup.find_root(root_markers)
