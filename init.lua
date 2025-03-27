@@ -734,8 +734,8 @@ require('lazy').setup({
         javascript = { 'prettier', stop_after_first = true },
         typescript = { 'prettier', stop_after_first = true },
         javascriptreact = { 'prettier', stop_after_first = true },
-        java = { 'javaformatter' },
         typescriptreact = { 'prettier', stop_after_first = true },
+        java = { 'javaformatter', 'remove_empty_import_lines' },
       },
       formatters = {
         javaformatter = {
@@ -743,9 +743,17 @@ require('lazy').setup({
           args = {
             '-jar',
             '/Users/khairizalbinkhalid/.config/formatter/google-java-format-1.19.2-all-deps.jar',
-            '--aosp', -- Apply AOSP style
-            '--skip-javadoc-formatting', -- Skip Javadoc formatting
+            '--aosp',
+            '--skip-javadoc-formatting',
             '-',
+          },
+        },
+        remove_empty_import_lines = {
+          command = 'perl',
+          args = {
+            '-0777',
+            '-pe',
+            's/(import.*\n)\n(import)/$1$2/g',
           },
         },
       },
