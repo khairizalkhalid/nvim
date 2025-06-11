@@ -978,19 +978,6 @@ require('lazy').setup({
     },
   },
 
-  -- Setup the JDTLS (Java Language Server)
-  {
-    'mfussenegger/nvim-jdtls',
-    init = function()
-      vim.cmd [[
-      augroup jdtls_lsp
-      autocmd!
-      autocmd FileType java lua require'jdtls.jdtls_setup'.setup()
-      augroup end
-      ]]
-    end,
-  },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
