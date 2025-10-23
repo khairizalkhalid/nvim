@@ -8,7 +8,18 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
 
     -- Status updates for LSP
-    { "j-hui/fidget.nvim", opts = {} },
+    {
+      "j-hui/fidget.nvim",
+      opts = {
+        notification = {
+          window = {
+            winblend = 0, -- Needed to prevent black background
+            normal_hl = "Normal", -- Use normal background
+            border = "rounded", -- Border style: "none", "single", "double", "rounded", "solid", "shadow"
+          },
+        },
+      },
+    },
   },
   config = function()
     -- This function runs when LSP attaches to a buffer
