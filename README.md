@@ -146,6 +146,60 @@ local servers = {
 
 Mason will auto-install them on next launch.
 
+### Java Setup
+
+This config includes Java support with Google Java Format and custom import cleanup.
+
+#### 1. Install Java Language Server
+
+Add `jdtls` to your LSP servers in `lua/plugins/lsp.lua`:
+
+```lua
+local servers = {
+  lua_ls = { ... },
+  jdtls = {},  -- Java
+}
+```
+
+Mason will auto-install it. The LSP configuration will be stored in `~/.local/share/nvim/mason/`.
+
+#### 2. Setup Google Java Format
+
+Download the Google Java Format jar and set the environment variable:
+
+```bash
+# Add to your ~/.zshrc or ~/.bashrc
+export GOOGLE_JAVA_FORMAT_JAR=$HOME/.config/formatter/google-java-format-1.19.2-all-deps.jar
+```
+
+Download the jar:
+```bash
+mkdir -p ~/.config/formatter
+curl -L -o ~/.config/formatter/google-java-format-1.19.2-all-deps.jar \
+  https://github.com/google/google-java-format/releases/download/v1.19.2/google-java-format-1.19.2-all-deps.jar
+```
+
+Reload your shell:
+```bash
+source ~/.zshrc  # or source ~/.bashrc
+```
+
+#### 3. How the Formatter Works
+
+When you format Java files (`<leader>f`), two formatters run in sequence:
+
+1. **Google Java Format** - Formats code according to Google's Java style guide
+   - Uses `--aosp` flag (Android Open Source Project style - 4-space indents)
+   - Skips Javadoc formatting with `--skip-javadoc-formatting`
+
+2. **Remove Empty Import Lines** - Custom Perl script that removes all empty lines between import statements
+   - Example: Converts scattered imports with blank lines into a compact block
+   - Uses regex with lookahead to repeatedly remove empty lines between imports
+
+**Format keybindings:**
+- `<leader>f` - Format current buffer manually
+- `<leader>tf` - Toggle format on save (enabled by default)
+
 ### Switch Colorschemes
 
 Edit `lua/plugins/colorscheme.lua` and change the `vim.cmd.colorscheme()` call:
@@ -171,12 +225,14 @@ opt.timeoutlen = 1000  -- Change to your preference (in milliseconds)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Syntax highlighting
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - LSP configuration
 - [mason.nvim](https://github.com/williamboman/mason.nvim) - LSP/tool installer
+- [conform.nvim](https://github.com/stevearc/conform.nvim) - Code formatter
 - [blink.cmp](https://github.com/saghen/blink.cmp) - Autocompletion
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git decorations
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - Statusline
 - [claude-code.nvim](https://github.com/greggh/claude-code.nvim) - Claude CLI integration
 - [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) - Tmux integration
 - [which-key.nvim](https://github.com/folke/which-key.nvim) - Keybinding hints
+- [fidget.nvim](https://github.com/j-hui/fidget.nvim) - LSP progress notifications
 
 ## 🎨 Philosophy
 
