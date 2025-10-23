@@ -40,3 +40,6 @@ keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Note: Telescope keymaps (<leader>sf, <leader>sg, <leader><leader>, etc.)
 -- will be added in lua/plugins/telescope.lua
+
+-- Make :new open vertical splits instead of horizontal
+vim.cmd("cnoreabbrev new vnew")
