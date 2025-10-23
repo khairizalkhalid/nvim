@@ -53,7 +53,28 @@ return {
       markdown = { "prettier" },
       go = { "goimports", "gofmt" },
       rust = { "rustfmt" },
+      java = { 'javaformatter', 'remove_empty_import_lines' },
       -- Add more formatters as needed
+    },
+    formatters = {
+      javaformatter = {
+        command = 'java',
+        args = {
+          '-jar',
+          vim.env.GOOGLE_JAVA_FORMAT_JAR,
+          '--aosp',
+          '--skip-javadoc-formatting',
+          '-',
+        },
+      },
+      remove_empty_import_lines = {
+        command = 'perl',
+        args = {
+          '-0777',
+          '-pe',
+          '1 while s/(import[^\n]*\n)\n+(?=import)/$1/g',
+        },
+      },
     },
   },
 }
