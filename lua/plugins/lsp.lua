@@ -76,6 +76,22 @@ return {
           },
         },
       },
+      jdtls = {
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-21",
+                  path = vim.env.JAVA_HOME_21,
+                  default = true,
+                },
+              },
+            },
+          },
+        },
+        -- Lombok support is enabled via JDTLS_JVM_ARGS env var in ~/.zshrc
+      },
       -- Add more servers here as needed:
       -- gopls = {},
       -- rust_analyzer = {},
