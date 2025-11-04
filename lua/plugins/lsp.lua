@@ -113,6 +113,10 @@ return {
     require("mason-lspconfig").setup({
       handlers = {
         function(server_name)
+          -- Skip jdtls - it's configured via ftplugin/java.lua using nvim-jdtls
+          if server_name == "jdtls" then
+            return
+          end
           local server = servers[server_name] or {}
           server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
           require("lspconfig")[server_name].setup(server)
