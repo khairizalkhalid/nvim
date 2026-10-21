@@ -94,8 +94,8 @@ return {
       },
       -- Add more servers here as needed:
       -- gopls = {},
-      -- rust_analyzer = {},
-      -- clangd = {},
+      rust_analyzer = {},
+      clangd = {},
       -- pyright = {},
       -- ts_ls = {}, -- TypeScript
     }
